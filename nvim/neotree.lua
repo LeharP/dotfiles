@@ -1,0 +1,20 @@
+-- return {
+--     "nvim-neo-tree/neo-tree.nvim",
+--     branch = "v3.x",
+--     dependencies = {
+--         "nvim-lua/plenary.nvim",
+--         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+--         "MunifTanjim/nui.nvim",
+--     },
+--     config = function()
+--         require("neo-tree").setup {
+--             window = {
+--                 auto_close = true,  -- This closes the tree when the last file is closed
+--             },
+--             filesystem = {
+--                 hijack_netrw = true,  -- Optional: Ensures that netrw is disabled for filesystem navigation
+--             },
+--         }
+--         vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal left<CR>", {})
+--     end,
+-- }
