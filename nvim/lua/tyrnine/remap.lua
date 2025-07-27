@@ -21,6 +21,7 @@ vim.keymap.set('i', "jj", "<Esc>")
 -- clipboard settings
 vim.opt.clipboard:append("unnamedplus")
 vim.keymap.set("x", "<C-c>", '"+y', { noremap = true, silent = true })
+
 -- moving panes keybind
 vim.keymap.set("n", "<A-j>", "<cmd>wincmd j<CR>")
 vim.keymap.set("n", "<A-k>", "<cmd>wincmd k<CR>")
@@ -39,7 +40,7 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 -- -- undo tree settings
--- vim.opt.swapfile = false
+vim.opt.swapfile = false
 -- vim.opt.backup = false
 -- vim.opt.undo = os.getenv("HOME").."/.vim/undodir"
 -- vim.opt.undofile = true
@@ -54,8 +55,8 @@ vim.keymap.set('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', {})
 --to open outline
 vim.keymap.set('n', '<A-o>', ':Lspsaga outline<CR>',{})
 
-vim.diagnostic.config({
-    virtual_text = false,
-})
+vim.diagnostic.config({ virtual_text = false, })
 
+vim.g.netrw_liststyle = 3
 
+vim.o.winborder = "rounded"

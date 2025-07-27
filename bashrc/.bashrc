@@ -132,8 +132,6 @@ cd()
 
 }
 
-
-# fzf reverse search binding
 __fzf_history__() {
   local selected
   selected=$(HISTTIMEFORMAT= history | fzf +s --tac | sed 's/ *[0-9]* *//')
@@ -142,10 +140,16 @@ __fzf_history__() {
 }
 bind -x '"\C-r": __fzf_history__'
 
-fzf_search() {
-    cd /
-    cd ~/Documents
+fzf_search_doc_directory() {
+    local selected_dir=$(find "$HOME/Documents" -type d -not -path '*/\.*' | fzf --height 40% --border --prompt="Select Project Folder: ")
+    if [ -d "$selected_dir" ]; then
+        cd "$selected_dir"
+    fi
+}
 
+bind '"\ee": "fzf_search_doc_directory\n"'
+
+fzf_search_all_directory() {
     local selected_dir=$(find . -type d -not -path '*/\.*' | fzf --height 40% --border --prompt="Select Project Folder: ")
     if [ -d "$selected_dir" ]; then
         cd "$selected_dir"
@@ -153,20 +157,16 @@ fzf_search() {
 }
 
 
-# Bind Alt+F to the fzf_search function
-bind '"\ee": "fzf_search\n"'
+bind '"\eE": "fzf_search_all_directory\n"'
 
 fzf_search_nvim() {
     local selected_file=$(find . -type f -not -path '*/\.*' | fzf --height 40% --border --prompt="Select File: ")
     if [ -f "$selected_file" ]; then
         nvim "$selected_file"
-
     fi
 }
 
-# Bind Alt+e to the fzf_search_nvim function
 bind '"\ef": "fzf_search_nvim\n"'
-
 
 . "$HOME/.local/bin/env"
 export PATH="$PATH:/opt/mssql-tools/bin"
