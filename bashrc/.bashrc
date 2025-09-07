@@ -160,7 +160,11 @@ fzf_search_all_directory() {
 bind '"\eE": "fzf_search_all_directory\n"'
 
 fzf_search_nvim() {
-    local selected_file=$(find . -type f -not -path '*/\.*' | fzf --height 40% --border --prompt="Select File: ")
+    local selected_file=$(find . -type f \
+        -not -path '*/.git/*' \
+        -not -path '*/.venv/*' \
+        | fzf --height 40% --border --prompt="Select File to open in nvim: ")
+    
     if [ -f "$selected_file" ]; then
         nvim "$selected_file"
     fi
