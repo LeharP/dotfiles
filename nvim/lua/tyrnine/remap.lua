@@ -1,3 +1,5 @@
+vim.keymap.set("n", '<leader><CR>', ':make<CR>')
+
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- best paste remap
