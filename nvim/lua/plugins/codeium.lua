@@ -10,12 +10,8 @@ require("codeium").setup({
     enable_cmp_source = true,
     virtual_text = {
         enabled = true,
-        }
---
---
+        },
 --         -- These are the defaults
---
---
 --         -- Set to true if you never want completions to be shown automatically.
 --         manual = false,
 --         -- A mapping of filetype to true or false, to enable virtual text.
@@ -37,7 +33,7 @@ require("codeium").setup({
 --         -- Defaults to \t normally or <c-n> when a popup is showing. 
 --         accept_fallback = nil,
 --         -- Key bindings for managing completions in virtual text mode.
---         key_bindings = {
+        key_bindings = {
 --
 --             -- Accept the current completion.
 --             accept = "<Tab>",
@@ -47,12 +43,9 @@ require("codeium").setup({
 --             accept_line = false,
 --             -- Clear the virtual text.
 --             clear = false,
---             -- Cycle to the next completion.
---             next = "<M-]>",
---
---             -- Cycle to the previous completion.
---             prev = "<M-[>",
---         }
---     }
+            next = "<M-]>",
+            prev = "<M-[>",
+        },
+    -- }
 })    end
 }
