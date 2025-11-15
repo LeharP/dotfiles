@@ -19,12 +19,6 @@ vim.keymap.set("x", "<C-c>", '"+y', { noremap = true, silent = true })
 
 vim.g.tmux_navigator_no_mappings = 1
 
--- moving panes keybind
-vim.keymap.set("n", "<A-j>", "<cmd>wincmd j<CR>")
-vim.keymap.set("n", "<A-k>", "<cmd>wincmd k<CR>")
-vim.keymap.set("n", "<A-l>", "<cmd>wincmd l<CR>")
-vim.keymap.set("n", "<A-h>", "<cmd>wincmd h<CR>")
-
 -- relative line numbers
 vim.wo.relativenumber = true
 vim.wo.wrap = false
