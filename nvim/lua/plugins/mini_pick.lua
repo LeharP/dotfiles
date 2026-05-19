@@ -14,7 +14,7 @@ return {
 						-- fd is better here, but fzf works too
 						return vim.fn.systemlist(
 							"fd --type f --hidden --follow --no-ignore " .. 
-                            "--exclude .git --exclude .venv --exclude node_modules --exclude __pycache__"
+                            "--exclude .git --exclude .venv --exclude node_modules --exclude __pycache__ --exclude .ruff_cache --exclude .mypy_cache --exclude logs"
 						)
 					end,
 				},

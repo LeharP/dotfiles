@@ -119,6 +119,7 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+export PATH="$PATH:/opt/nvim/"
 
 cd()
 {
@@ -163,6 +164,10 @@ fzf_search_nvim() {
     local selected_file=$(find . -type f \
         -not -path '*/.git/*' \
         -not -path '*/.venv/*' \
+        -not -path '*/.mypy_cache/*' \
+        -not -path '*/__pycache__/*' \
+        -not -path '*/node_modules/*' \
+        -not -path '*/.ruff_cache*' \
         | fzf --height 40% --border --prompt="Select File to open in nvim: ")
     
     if [ -f "$selected_file" ]; then

@@ -1,7 +1,7 @@
 -- best paste remap
 vim.keymap.set("v", "<leader>p", '"_dP')
 
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>")
+-- vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>")
 
 -- tab space to 2
 vim.cmd("set expandtab")
