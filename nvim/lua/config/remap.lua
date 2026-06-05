@@ -1,9 +1,19 @@
+vim.opt.guicursor = ""
+vim.g.netrw_liststyle = 3
+
 -- best paste remap
 vim.keymap.set("v", "<leader>p", '"_dP')
 
--- vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>")
+-- drag text up and down
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 
--- tab space to 2
+-- search and replace
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+-- search across files
+vim.keymap.set("n", "<leader>f", ":vimgrep /<C-r><C-w>/ **/*<CR>:copen<CR>")
+
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
@@ -31,6 +41,7 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 -- -- undo tree settings
+
 vim.opt.swapfile = false
 -- vim.opt.backup = false
 -- vim.opt.undo = os.getenv("HOME").."/.vim/undodir"
@@ -41,19 +52,19 @@ vim.opt.swapfile = false
 -- lsp saga
 -- to show errors in line
 vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", {})
+
+vim.diagnostic.config({ virtual_text = false })
+
+vim.o.winborder = "rounded"
 -- to toggle terminal
 -- vim.keymap.set('n', '<A-k>', ':Lspsaga term_toggle<CR>',{})
 --to open outline
 vim.keymap.set("n", "<A-o>", ":Lspsaga outline<CR>", {})
 
-vim.diagnostic.config({ virtual_text = false })
-
-vim.g.netrw_liststyle = 3
-
-vim.o.winborder = "rounded"
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
+
